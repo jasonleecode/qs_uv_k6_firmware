@@ -17,7 +17,7 @@
 #ifdef ENABLE_FMRADIO
 	#include "app/fm.h"
 #endif
-#include "audio.h"
+#include "misc/audio.h"
 #include "bsp/dp32g030/gpio.h"
 #ifdef ENABLE_FMRADIO
 	#include "driver/bk1080.h"
@@ -26,9 +26,9 @@
 #include "driver/gpio.h"
 #include "driver/system.h"
 #include "driver/systick.h"
-#include "functions.h"
-#include "misc.h"
-#include "settings.h"
+#include "misc/functions.h"
+#include "misc/misc.h"
+#include "misc/settings.h"
 #include "ui/ui.h"
 
 
@@ -104,7 +104,7 @@ void AUDIO_PlayBeep(BEEP_Type_t Beep)
 
 	SYSTEM_DelayMs(60);
 
-	uint16_t Duration;
+	uint16_t Duration = 10;
 	switch (Beep)
 	{
 		case BEEP_880HZ_60MS_TRIPLE_BEEP:
@@ -112,14 +112,16 @@ void AUDIO_PlayBeep(BEEP_Type_t Beep)
 			SYSTEM_DelayMs(60);
 			BK4819_EnterTxMute();
 			SYSTEM_DelayMs(20);
-			[[fallthrough]];
+			break;
+			/* [[fallthrough]]; */
 		case BEEP_500HZ_60MS_DOUBLE_BEEP_OPTIONAL:
 		case BEEP_500HZ_60MS_DOUBLE_BEEP:
 			BK4819_ExitTxMute();
 			SYSTEM_DelayMs(60);
 			BK4819_EnterTxMute();
 			SYSTEM_DelayMs(20);
-			[[fallthrough]];
+			break;
+			/* [[fallthrough]]; */
 		case BEEP_1KHZ_60MS_OPTIONAL:
 			BK4819_ExitTxMute();
 			Duration = 60;

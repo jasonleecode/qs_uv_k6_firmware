@@ -20,7 +20,7 @@
 #include "driver/keyboard.h"
 #include "driver/systick.h"
 #include "driver/i2c.h"
-#include "misc.h"
+#include "misc/misc.h"
 
 KEY_Code_t gKeyReading0     = KEY_INVALID;
 KEY_Code_t gKeyReading1     = KEY_INVALID;

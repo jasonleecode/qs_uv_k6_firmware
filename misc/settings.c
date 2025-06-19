@@ -23,8 +23,8 @@
 #include "driver/bk1080.h"
 #include "driver/bk4819.h"
 #include "driver/eeprom.h"
-#include "misc.h"
-#include "settings.h"
+#include "misc/misc.h"
+#include "misc/settings.h"
 #include "ui/menu.h"
 
 static const uint32_t gDefaultFrequencyTable[] =

@@ -20,9 +20,9 @@
 #if defined(ENABLE_FMRADIO)
 	#include "app/fm.h"
 #endif
-#include "audio.h"
+#include "misc/audio.h"
 #include "bsp/dp32g030/gpio.h"
-#include "dcs.h"
+#include "misc/dcs.h"
 #include "driver/backlight.h"
 #if defined(ENABLE_FMRADIO)
 	#include "driver/bk1080.h"
@@ -31,12 +31,12 @@
 #include "driver/gpio.h"
 #include "driver/system.h"
 #include "driver/st7565.h"
-#include "frequencies.h"
-#include "functions.h"
+#include "misc/frequencies.h"
+#include "misc/functions.h"
 #include "helper/battery.h"
-#include "misc.h"
-#include "radio.h"
-#include "settings.h"
+#include "misc/misc.h"
+#include "misc/radio.h"
+#include "misc/settings.h"
 #include "ui/status.h"
 #include "ui/ui.h"
 

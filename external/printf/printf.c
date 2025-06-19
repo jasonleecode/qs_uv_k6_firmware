@@ -40,7 +40,7 @@
 // printf_config.h header file
 // default: undefined
 #ifdef PRINTF_INCLUDE_CONFIG_H
-#include "printf_config.h"
+#include "misc/printf_config.h"
 #endif
 
 

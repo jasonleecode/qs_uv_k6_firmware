@@ -20,8 +20,8 @@
 #include <stdbool.h>
 #include <stdint.h>
 
-#include "dcs.h"
-#include "frequencies.h"
+#include "misc/dcs.h"
+#include "misc/frequencies.h"
 
 enum {
 	RADIO_CHANNEL_UP   = 0x01u,

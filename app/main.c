@@ -31,14 +31,14 @@
 #include "app/spectrum.h"
 #endif
 
-#include "audio.h"
-#include "board.h"
+#include "misc/audio.h"
+#include "misc/board.h"
 #include "driver/bk4819.h"
 #include "dtmf.h"
-#include "frequencies.h"
-#include "misc.h"
-#include "radio.h"
-#include "settings.h"
+#include "misc/frequencies.h"
+#include "misc/misc.h"
+#include "misc/radio.h"
+#include "misc/settings.h"
 #include "ui/inputbox.h"
 #include "ui/ui.h"
 #include <stdlib.h>

@@ -20,12 +20,12 @@
 #include "driver/st7565.h"
 #include "external/printf/printf.h"
 #include "helper/battery.h"
-#include "settings.h"
-#include "misc.h"
+#include "misc/settings.h"
+#include "misc/misc.h"
 #include "ui/helper.h"
 #include "ui/welcome.h"
 #include "ui/status.h"
-#include "version.h"
+#include "misc/version.h"
 
 void UI_DisplayReleaseKeys(void)
 {

@@ -17,11 +17,11 @@
 #include <stddef.h>
 #include <string.h>
 
-#include "bitmaps.h"
+#include "misc/bitmaps.h"
 #include "driver/st7565.h"
-#include "functions.h"
+#include "misc/functions.h"
 #include "ui/battery.h"
-#include "../misc.h"
+#include "misc/misc.h"
 
 void UI_DrawBattery(uint8_t* bitmap, uint8_t level, uint8_t blink)
 {

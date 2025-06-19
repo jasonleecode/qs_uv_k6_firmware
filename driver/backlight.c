@@ -19,7 +19,7 @@
 #include "bsp/dp32g030/pwmplus.h"
 #include "bsp/dp32g030/portcon.h"
 #include "driver/gpio.h"
-#include "settings.h"
+#include "misc/settings.h"
 
 // this is decremented once every 500ms
 uint16_t gBacklightCountdown_500ms = 0;

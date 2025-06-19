@@ -14,7 +14,7 @@
  *     limitations under the License.
  */
 
-#include "dcs.h"
+#include "misc/dcs.h"
 
 #ifndef ARRAY_SIZE
 	#define ARRAY_SIZE(x) (sizeof(x) / sizeof(x[0]))

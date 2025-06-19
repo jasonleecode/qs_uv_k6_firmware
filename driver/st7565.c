@@ -23,7 +23,7 @@
 #include "driver/spi.h"
 #include "driver/st7565.h"
 #include "driver/system.h"
-#include "misc.h"
+#include "misc/misc.h"
 
 uint8_t gStatusLine[LCD_WIDTH];
 uint8_t gFrameBuffer[FRAME_LINES][LCD_WIDTH];

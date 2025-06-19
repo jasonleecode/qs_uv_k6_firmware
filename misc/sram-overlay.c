@@ -18,7 +18,7 @@
 #include "bsp/dp32g030/pmu.h"
 #include "bsp/dp32g030/saradc.h"
 #include "bsp/dp32g030/syscon.h"
-#include "sram-overlay.h"
+#include "misc/sram-overlay.h"
 
 static volatile uint32_t *pFlash = 0;
 uint32_t                  overlay_FLASH_MainClock;

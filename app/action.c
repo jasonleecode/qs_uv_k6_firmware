@@ -29,7 +29,7 @@
 	#include "app/fm.h"
 #endif
 #include "app/scanner.h"
-#include "audio.h"
+#include "misc/audio.h"
 #include "bsp/dp32g030/gpio.h"
 #ifdef ENABLE_FMRADIO
 	#include "driver/bk1080.h"
@@ -37,9 +37,9 @@
 #include "driver/bk4819.h"
 #include "driver/gpio.h"
 #include "driver/backlight.h"
-#include "functions.h"
-#include "misc.h"
-#include "settings.h"
+#include "misc/functions.h"
+#include "misc/misc.h"
+#include "misc/settings.h"
 #include "ui/inputbox.h"
 #include "ui/ui.h"
 

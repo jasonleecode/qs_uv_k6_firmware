@@ -1,5 +1,5 @@
 
-#include "bitmaps.h"
+#include "misc/bitmaps.h"
 
 // all these images are on their right sides
 // turn your monitor 90-deg anti-clockwise to see the images

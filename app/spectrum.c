@@ -14,16 +14,16 @@
  *     limitations under the License.
  */
 #include "app/spectrum.h"
-#include "am_fix.h"
-#include "audio.h"
-#include "misc.h"
+#include "misc/am_fix.h"
+#include "misc/audio.h"
+#include "misc/misc.h"
 
 #ifdef ENABLE_SCAN_RANGES
 #include "chFrScanner.h"
 #endif
 
 #include "driver/backlight.h"
-#include "frequencies.h"
+#include "misc/frequencies.h"
 #include "ui/helper.h"
 #include "ui/main.h"
 

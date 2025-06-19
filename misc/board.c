@@ -19,7 +19,7 @@
 #ifdef ENABLE_FMRADIO
 	#include "app/fm.h"
 #endif
-#include "board.h"
+#include "misc/board.h"
 #include "bsp/dp32g030/gpio.h"
 #include "bsp/dp32g030/portcon.h"
 #include "bsp/dp32g030/saradc.h"
@@ -36,12 +36,12 @@
 #include "driver/gpio.h"
 #include "driver/system.h"
 #include "driver/st7565.h"
-#include "frequencies.h"
+#include "misc/frequencies.h"
 #include "helper/battery.h"
-#include "misc.h"
-#include "settings.h"
+#include "misc/misc.h"
+#include "misc/settings.h"
 #if defined(ENABLE_OVERLAY)
-	#include "sram-overlay.h"
+	#include "misc/sram-overlay.h"
 #endif
 
 #if defined(ENABLE_OVERLAY)

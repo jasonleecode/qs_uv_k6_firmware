@@ -1,9 +1,9 @@
 
 #include "app/app.h"
 #include "app/chFrScanner.h"
-#include "functions.h"
-#include "misc.h"
-#include "settings.h"
+#include "misc/functions.h"
+#include "misc/misc.h"
+#include "misc/settings.h"
 
 int8_t            gScanStateDir;
 bool              gScanKeepResult;
@@ -193,27 +193,21 @@ static void NextMemChannel(void)
 			case SCAN_NEXT_CHAN_SCANLIST1:
 				prev_mr_chan = gNextMrChannel;
 	
-				if (chan1 >= 0)
+				if (chan1 >= 0 && RADIO_CheckValidChannel(chan1, false, 0))
 				{
-					if (RADIO_CheckValidChannel(chan1, false, 0))
-					{
-						currentScanList = SCAN_NEXT_CHAN_SCANLIST1;
-						gNextMrChannel   = chan1;
-						break;
-					}
+					currentScanList = SCAN_NEXT_CHAN_SCANLIST1;
+					gNextMrChannel   = chan1;
 				}
-				[[fallthrough]];
+				break;
+				/* [[fallthrough]]; */
 			case SCAN_NEXT_CHAN_SCANLIST2:
-				if (chan2 >= 0)
+				if (chan2 >= 0 && RADIO_CheckValidChannel(chan2, false, 0))
 				{
-					if (RADIO_CheckValidChannel(chan2, false, 0))
-					{
-						currentScanList = SCAN_NEXT_CHAN_SCANLIST2;
-						gNextMrChannel   = chan2;
-						break;
-					}
+					currentScanList = SCAN_NEXT_CHAN_SCANLIST2;
+					gNextMrChannel   = chan2;
 				}
-				[[fallthrough]];
+				break;
+				/* [[fallthrough]]; */
 				
 			// this bit doesn't yet work if the other VFO is a frequency
 			case SCAN_NEXT_CHAN_DUAL_WATCH:

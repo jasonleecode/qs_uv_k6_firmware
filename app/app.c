@@ -18,7 +18,7 @@
 #include <stdint.h>
 #include <string.h>
 
-#include "am_fix.h"
+#include "misc/am_fix.h"
 #include "app/action.h"
 
 #ifdef ENABLE_AIRCOPY
@@ -41,8 +41,8 @@
 	#include "app/uart.h"
 #endif
 #include "ARMCM0.h"
-#include "audio.h"
-#include "board.h"
+#include "misc/audio.h"
+#include "misc/board.h"
 #include "bsp/dp32g030/gpio.h"
 #include "driver/backlight.h"
 #ifdef ENABLE_FMRADIO
@@ -55,15 +55,15 @@
 #include "driver/system.h"
 #include "dtmf.h"
 #include "external/printf/printf.h"
-#include "frequencies.h"
-#include "functions.h"
+#include "misc/frequencies.h"
+#include "misc/functions.h"
 #include "helper/battery.h"
-#include "misc.h"
-#include "radio.h"
-#include "settings.h"
+#include "misc/misc.h"
+#include "misc/radio.h"
+#include "misc/settings.h"
 
 #if defined(ENABLE_OVERLAY)
-	#include "sram-overlay.h"
+	#include "misc/sram-overlay.h"
 #endif
 #include "ui/battery.h"
 #include "ui/inputbox.h"

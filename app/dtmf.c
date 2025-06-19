@@ -23,15 +23,15 @@
 #endif
 #include "app/scanner.h"
 #include "bsp/dp32g030/gpio.h"
-#include "audio.h"
+#include "misc/audio.h"
 #include "driver/bk4819.h"
 #include "driver/eeprom.h"
 #include "driver/gpio.h"
 #include "driver/system.h"
 #include "dtmf.h"
 #include "external/printf/printf.h"
-#include "misc.h"
-#include "settings.h"
+#include "misc/misc.h"
+#include "misc/settings.h"
 #include "ui/ui.h"
 
 char              gDTMF_String[15];
@@ -397,7 +397,8 @@ void DTMF_HandleRequest(void)
 			{
 				case DTMF_DEC_RESPONSE_BOTH:
 					gDTMF_DecodeRingCountdown_500ms = DTMF_decode_ring_countdown_500ms;
-					[[fallthrough]];
+					break;
+					/* [[fallthrough]]; */
 				case DTMF_DEC_RESPONSE_REPLY:
 					gDTMF_ReplyState = DTMF_REPLY_AAAAA;
 					break;

@@ -23,7 +23,7 @@
 	#include "app/fm.h"
 #endif
 #include "app/uart.h"
-#include "board.h"
+#include "misc/board.h"
 #include "bsp/dp32g030/dma.h"
 #include "bsp/dp32g030/gpio.h"
 #include "driver/aes.h"
@@ -33,13 +33,13 @@
 #include "driver/eeprom.h"
 #include "driver/gpio.h"
 #include "driver/uart.h"
-#include "functions.h"
-#include "misc.h"
-#include "settings.h"
-#include "version.h"
+#include "misc/functions.h"
+#include "misc/misc.h"
+#include "misc/settings.h"
+#include "misc/version.h"
 
 #if defined(ENABLE_OVERLAY)
-	#include "sram-overlay.h"
+	#include "misc/sram-overlay.h"
 #endif
 
 

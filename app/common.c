@@ -1,8 +1,8 @@
 #include "app/chFrScanner.h"
-#include "audio.h"
-#include "functions.h"
-#include "misc.h"
-#include "settings.h"
+#include "misc/audio.h"
+#include "misc/functions.h"
+#include "misc/misc.h"
+#include "misc/settings.h"
 #include "ui/ui.h"
 
 void COMMON_KeypadLockToggle() 

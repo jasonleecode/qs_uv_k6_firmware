@@ -19,9 +19,9 @@
 
 #include <stdbool.h>
 
-#include "functions.h"
-#include "frequencies.h"
-#include "radio.h"
+#include "misc/functions.h"
+#include "misc/frequencies.h"
+#include "misc/radio.h"
 
 void     APP_EndTransmission(void);
 void     APP_StartListening(FUNCTION_Type_t function);

@@ -17,24 +17,24 @@
 #include "driver/bk4819-regs.h"
 #include <string.h>
 
-#include "am_fix.h"
+#include "misc/am_fix.h"
 #include "app/dtmf.h"
 #ifdef ENABLE_FMRADIO
 	#include "app/fm.h"
 #endif
-#include "audio.h"
+#include "misc/audio.h"
 #include "bsp/dp32g030/gpio.h"
-#include "dcs.h"
+#include "misc/dcs.h"
 #include "driver/bk4819.h"
 #include "driver/eeprom.h"
 #include "driver/gpio.h"
 #include "driver/system.h"
-#include "frequencies.h"
-#include "functions.h"
+#include "misc/frequencies.h"
+#include "misc/functions.h"
 #include "helper/battery.h"
-#include "misc.h"
-#include "radio.h"
-#include "settings.h"
+#include "misc/misc.h"
+#include "misc/radio.h"
+#include "misc/settings.h"
 #include "ui/menu.h"
 
 VFO_Info_t    *gTxVfo;
@@ -537,7 +537,8 @@ void RADIO_SetupRegisters(bool switchToForeground)
 	{
 		default:
 			Bandwidth = BK4819_FILTER_BW_WIDE;
-			[[fallthrough]];
+			break;
+			/* [[fallthrough]]; */
 		case BK4819_FILTER_BW_WIDE:
 		case BK4819_FILTER_BW_NARROW:
 			#ifdef ENABLE_AM_FIX
@@ -767,7 +768,8 @@ void RADIO_SetTxParameters(void)
 	{
 		default:
 			Bandwidth = BK4819_FILTER_BW_WIDE;
-			[[fallthrough]];
+			break;
+			/* [[fallthrough]]; */
 		case BK4819_FILTER_BW_WIDE:
 		case BK4819_FILTER_BW_NARROW:
 			#ifdef ENABLE_AM_FIX

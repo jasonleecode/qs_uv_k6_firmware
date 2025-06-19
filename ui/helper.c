@@ -18,10 +18,10 @@
 
 #include "driver/st7565.h"
 #include "external/printf/printf.h"
-#include "font.h"
+#include "misc/font.h"
 #include "ui/helper.h"
 #include "ui/inputbox.h"
-#include "misc.h"
+#include "misc/misc.h"
 
 #ifndef ARRAY_SIZE
 	#define ARRAY_SIZE(arr) (sizeof(arr)/sizeof((arr)[0]))

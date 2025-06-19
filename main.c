@@ -19,15 +19,15 @@
 #include <stdio.h>     // NULL
 
 #ifdef ENABLE_AM_FIX
-	#include "am_fix.h"
+	#include "misc/am_fix.h"
 #endif
 
-#include "audio.h"
-#include "board.h"
-#include "misc.h"
-#include "radio.h"
-#include "settings.h"
-#include "version.h"
+#include "misc/audio.h"
+#include "misc/board.h"
+#include "misc/misc.h"
+#include "misc/radio.h"
+#include "misc/settings.h"
+#include "misc/version.h"
 
 #include "app/app.h"
 #include "app/dtmf.h"

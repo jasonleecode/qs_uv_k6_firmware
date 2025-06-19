@@ -19,11 +19,11 @@
 	#include "app/fm.h"
 #endif
 #include "app/scanner.h"
-#include "audio.h"
-#include "functions.h"
+#include "misc/audio.h"
+#include "misc/functions.h"
 #include "helper/battery.h"
-#include "misc.h"
-#include "settings.h"
+#include "misc/misc.h"
+#include "misc/settings.h"
 
 #include "driver/backlight.h"
 #include "bsp/dp32g030/gpio.h"

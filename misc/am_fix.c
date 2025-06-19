@@ -21,15 +21,15 @@
 
 #include <string.h>
 
-#include "am_fix.h"
+#include "misc/am_fix.h"
 #include "app/main.h"
-#include "board.h"
+#include "misc/board.h"
 #include "driver/bk4819.h"
 #include "external/printf/printf.h"
-#include "frequencies.h"
-#include "functions.h"
-#include "misc.h"
-#include "settings.h"
+#include "misc/frequencies.h"
+#include "misc/functions.h"
+#include "misc/misc.h"
+#include "misc/settings.h"
 #ifdef ENABLE_AGC_SHOW_DATA
 #include "ui/main.h"
 #endif

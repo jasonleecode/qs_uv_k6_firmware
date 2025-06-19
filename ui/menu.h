@@ -20,8 +20,8 @@
 #include <stdbool.h>
 #include <stdint.h>
 
-#include "audio.h"     // VOICE_ID_t
-#include "settings.h"
+#include "misc/audio.h"     // VOICE_ID_t
+#include "misc/settings.h"
 
 typedef struct {
 	const char  name[7];    // menu display area only has room for 6 characters

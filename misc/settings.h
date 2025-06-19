@@ -20,9 +20,9 @@
 #include <stdbool.h>
 #include <stdint.h>
 
-#include "frequencies.h"
+#include "misc/frequencies.h"
 #include <helper/battery.h>
-#include "radio.h"
+#include "misc/radio.h"
 #include <driver/backlight.h>
 
 enum POWER_OnDisplayMode_t {

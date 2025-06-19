@@ -23,20 +23,20 @@
 #include "app/generic.h"
 #include "app/menu.h"
 #include "app/scanner.h"
-#include "audio.h"
-#include "board.h"
+#include "misc/audio.h"
+#include "misc/board.h"
 #include "bsp/dp32g030/gpio.h"
 #include "driver/backlight.h"
 #include "driver/bk4819.h"
 #include "driver/eeprom.h"
 #include "driver/gpio.h"
 #include "driver/keyboard.h"
-#include "frequencies.h"
+#include "misc/frequencies.h"
 #include "helper/battery.h"
-#include "misc.h"
-#include "settings.h"
+#include "misc/misc.h"
+#include "misc/settings.h"
 #if defined(ENABLE_OVERLAY)
-	#include "sram-overlay.h"
+	#include "misc/sram-overlay.h"
 #endif
 #include "ui/inputbox.h"
 #include "ui/menu.h"
@@ -434,7 +434,8 @@ void MENU_AcceptSetting(void)
 		}
 		case MENU_T_CTCS:
 			pConfig = &gTxVfo->freq_config_TX;
-			[[fallthrough]];
+			return;
+			/* [[fallthrough]]; */
 		case MENU_R_CTCS: {
 			if (gSubMenuSelection == 0) {
 				if (pConfig->CodeType != CODE_TYPE_CONTINUOUS_TONE) {
@@ -1219,7 +1220,8 @@ static void MENU_Key_0_to_9(KEY_Code_t Key, bool bKeyPressed, bool bKeyHeld)
 
 				gInputBox[0]   = gInputBox[1];
 				gInputBoxIndex = 1;
-				[[fallthrough]];
+				break;
+				/* [[fallthrough]]; */
 			case 1:
 				Value = gInputBox[0];
 				if (Value > 0 && Value <= gMenuListCount) {
@@ -1568,7 +1570,7 @@ static void MENU_Key_UP_DOWN(bool bKeyPressed, bool bKeyHeld, int8_t Direction)
 {
 	uint8_t VFO;
 	uint8_t Channel;
-	bool    bCheckScanList;
+	bool    bCheckScanList = false;
 
 	if (UI_MENU_GetCurrentMenuId() == MENU_MEM_NAME && gIsInSubMenu && edit_index >= 0)
 	{	// change the character
@@ -1651,7 +1653,8 @@ static void MENU_Key_UP_DOWN(bool bKeyPressed, bool bKeyHeld, int8_t Direction)
 
 		case MENU_SLIST2:
 			VFO = 1;
-			[[fallthrough]];
+			break;
+			/* [[fallthrough]]; */
 		case MENU_SLIST1:
 			bCheckScanList = true;
 			break;

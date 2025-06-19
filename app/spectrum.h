@@ -17,8 +17,8 @@
 #ifndef SPECTRUM_H
 #define SPECTRUM_H
 
-#include "../bitmaps.h"
-#include "../board.h"
+#include "misc/bitmaps.h"
+#include "misc/board.h"
 #include "../bsp/dp32g030/gpio.h"
 #include "../driver/bk4819-regs.h"
 #include "../driver/bk4819.h"
@@ -28,11 +28,11 @@
 #include "../driver/system.h"
 #include "../driver/systick.h"
 #include "../external/printf/printf.h"
-#include "../font.h"
+#include "misc/font.h"
 #include "../helper/battery.h"
-#include "../misc.h"
-#include "../radio.h"
-#include "../settings.h"
+#include "misc/misc.h"
+#include "misc/radio.h"
+#include "misc/settings.h"
 #include "../ui/helper.h"
 #include <stdbool.h>
 #include <stdint.h>

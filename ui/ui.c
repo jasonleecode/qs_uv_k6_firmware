@@ -23,7 +23,7 @@
 	#include "app/fm.h"
 #endif
 #include "driver/keyboard.h"
-#include "misc.h"
+#include "misc/misc.h"
 #ifdef ENABLE_AIRCOPY
 	#include "ui/aircopy.h"
 #endif
@@ -35,7 +35,7 @@
 #include "ui/menu.h"
 #include "ui/scanner.h"
 #include "ui/ui.h"
-#include "../misc.h"
+#include "misc/misc.h"
 
 GUI_DisplayType_t gScreenToDisplay;
 GUI_DisplayType_t gRequestDisplayScreen = DISPLAY_INVALID;
