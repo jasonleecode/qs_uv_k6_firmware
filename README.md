@@ -4,6 +4,21 @@
 2. 重构了makefile文件；
 3. 增加了cmake编译文件；
 
+# build
+本工程是在ubuntu20.04环境编译，Windows环境还没有测试，暂不提供支持，Mac环境稍后测试；
+## dependency
+    pip install crcmod
+    sudo apt-get install cmake gcc-arm-none-eabi build-essential
+
+## 编译方法
+    #方法1
+    make
+
+    #方法2
+    mkdir build && cd build
+    cmake ..
+    make -j4
+
 # 硬件特性
 ## 主控制器 DP32G030
 - 32位ARM Cortex M0处理器内核
