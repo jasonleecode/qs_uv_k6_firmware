@@ -10,7 +10,7 @@ set(COMMON_C_FLAGS "-Os -Wall -Wextra -Werror -fno-builtin -fshort-enums -fno-de
 set(CMAKE_C_FLAGS "${CPU_FLAGS} ${COMMON_C_FLAGS}")
 set(CMAKE_ASM_FLAGS "${CPU_FLAGS}")
 
-set(LINKER_SCRIPT ${CMAKE_SOURCE_DIR}/firmware.ld)
+set(LINKER_SCRIPT ${CMAKE_SOURCE_DIR}/external/libcpu/firmware.ld)
 set(LINKER_FLAGS "-T${LINKER_SCRIPT} -nostartfiles -Wl,--gc-sections -z noexecstack --specs=nano.specs")
 set(CMAKE_EXE_LINKER_FLAGS "${CPU_FLAGS} ${LINKER_FLAGS}")
 
@@ -60,7 +60,7 @@ file(GLOB_RECURSE C_SOURCES CONFIGURE_DEPENDS
     ${CMAKE_SOURCE_DIR}/external/printf/*.c
 )
 
-set(ASM_SOURCES ${CMAKE_SOURCE_DIR}/start.S)
+set(ASM_SOURCES ${CMAKE_SOURCE_DIR}/external/libcpu/start.S)
 
 # ====== Output ======
 set(EXECUTABLE_OUTPUT_PATH ${CMAKE_BINARY_DIR})

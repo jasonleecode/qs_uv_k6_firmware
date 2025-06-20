@@ -5,7 +5,7 @@ TARGET := firmware
 
 # Build and source folders
 BUILD_DIR := build
-SRC_DIRS := app driver misc ui helper external .
+SRC_DIRS := app driver misc ui helper external external/printf .
 
 # Tools
 AS := arm-none-eabi-gcc
@@ -27,10 +27,16 @@ else
 	NULL_OUTPUT := /dev/null
 endif
 
-# Source and object files
-SRCS := $(foreach dir, $(SRC_DIRS), $(wildcard $(dir)/*.c))
-OBJS := $(patsubst %.c, $(BUILD_DIR)/%.o, $(SRCS))
-DEPS := $(OBJS:.o=.d)
+# === Sources ===
+STARTUP := external/libcpu/start.S
+C_SRCS := $(foreach dir, $(SRC_DIRS), $(wildcard $(dir)/*.c))
+ASM_SRCS := $(STARTUP)
+
+C_OBJS := $(patsubst %.c, $(BUILD_DIR)/%.o, $(C_SRCS))
+ASM_OBJS := $(patsubst %.S, $(BUILD_DIR)/%.o, $(ASM_SRCS))
+
+OBJS := $(C_OBJS) $(ASM_OBJS)
+DEPS := $(C_OBJS:.o=.d)
 
 # Pre-create build directories
 DIRS := $(sort $(dir $(OBJS)))
@@ -47,7 +53,7 @@ ifdef MY_PYTHON
 endif
 
 # Version string from Git or fallback
-AUTHOR_STRING ?= EGZUMER
+AUTHOR_STRING ?= JasonLee
 ifneq (, $(shell $(WHERE) git))
 	VERSION_STRING ?= $(shell git describe --tags --exact-match 2>$(NULL_OUTPUT))
 	ifeq (, $(VERSION_STRING))
@@ -64,11 +70,11 @@ CFLAGS := -Os -Wall -Werror -mcpu=cortex-m0 -fno-builtin -fshort-enums \
 	-fno-delete-null-pointer-checks -std=c2x -MMD -Wextra \
 	-DPRINTF_INCLUDE_CONFIG_H -DAUTHOR_STRING=\"$(AUTHOR_STRING)\" \
 	-DVERSION_STRING=\"$(VERSION_STRING)\"
-LDFLAGS := -z noexecstack -mcpu=cortex-m0 -nostartfiles -Wl,-T,firmware.ld \
+LDFLAGS := -z noexecstack -mcpu=cortex-m0 -nostartfiles -Wl,-T,external/libcpu/firmware.ld \
 	-Wl,--gc-sections --specs=nano.specs
 INC := -I. -Iexternal/libcpu/ -Iexternal/libcpu/ARMCM0/Include/
 
-# Rules
+# ===== Rules =====
 all: $(TARGET)
 	$(OBJCOPY) -O binary $< $<.bin
 ifeq (, $(MY_PYTHON))
@@ -77,14 +83,14 @@ else ifneq (, $(HAS_CRCMOD))
 	$(info !!!!!!!! CRCMOD NOT INSTALLED, *.PACKED.BIN WON'T BE BUILT)
 	$(info !!!!!!!! run: pip install crcmod)
 else
-	-$(MY_PYTHON) fw-pack.py $<.bin $(AUTHOR_STRING) $(VERSION_STRING) $<.packed.bin
+	-$(MY_PYTHON) tools/fw-pack.py $<.bin $(AUTHOR_STRING) $(VERSION_STRING) $<.packed.bin
 endif
 	$(SIZE) $<
 
 $(TARGET): $(OBJS)
 	$(LD) $(LDFLAGS) $^ -o $@
 
-# Compile rules
+# === Compile rules ===
 $(BUILD_DIR)/%.o: %.c
 	@mkdir -p $(dir $@)
 	$(CC) $(CFLAGS) $(INC) -c $< -o $@
@@ -93,6 +99,7 @@ $(BUILD_DIR)/%.o: %.S
 	@mkdir -p $(dir $@)
 	$(AS) $(ASFLAGS) -c $< -o $@
 
+# Only include dependencies from C files
 -include $(DEPS)
 
 clean:
