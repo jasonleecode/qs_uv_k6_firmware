@@ -1,8 +1,10 @@
 # 本版本固件的改进项
 
-1. 之前的代码组织很乱，重新组织了一下；
-2. 重构了makefile文件；
-3. 增加了cmake编译文件；
+1. 之前的代码组织很乱，重新组织了一下；done
+2. 重构了makefile文件；done
+3. 增加了cmake编译文件；done
+4. 增加rt-thread系统移植；
+
 
 # build
 本工程是在ubuntu20.04环境编译，Windows环境还没有测试，暂不提供支持，Mac环境稍后测试；

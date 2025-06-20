@@ -19,8 +19,7 @@
 
 #include <stdint.h>
 
-void SYSTICK_Init(void);
+void systick_init(void);
 void SYSTICK_DelayUs(uint32_t Delay);
 
 #endif
-

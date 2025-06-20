@@ -19,7 +19,7 @@
 
 .global Stack
 .global HandlerReset
-.global Main
+.global main
 
 .global OVERLAY_Install
 .global BOARD_FLASH_Init
@@ -248,6 +248,6 @@ HandlerReset:
 #if defined(ENABLE_OVERLAY)
 	bl	BOARD_FLASH_Init
 #endif
-	bl	Main
+	bl	main
 	b 	.
 
