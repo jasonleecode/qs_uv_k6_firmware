@@ -66,7 +66,7 @@ CFLAGS := -Os -Wall -Werror -mcpu=cortex-m0 -fno-builtin -fshort-enums \
 	-DVERSION_STRING=\"$(VERSION_STRING)\"
 LDFLAGS := -z noexecstack -mcpu=cortex-m0 -nostartfiles -Wl,-T,firmware.ld \
 	-Wl,--gc-sections --specs=nano.specs
-INC := -I. -Iexternal/CMSIS_5/CMSIS/Core/Include/ -Iexternal/CMSIS_5/Device/ARM/ARMCM0/Include/
+INC := -I. -Iexternal/libcpu/ -Iexternal/libcpu/ARMCM0/Include/
 
 # Rules
 all: $(TARGET)

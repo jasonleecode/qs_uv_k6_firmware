@@ -1,7 +1,8 @@
 *.d
 *.o
-build
-firmware
 *.elf
 *.hex
 *.bin
+build
+.vscode
+firmware
