@@ -32,7 +32,7 @@
 #include "driver/gpio.h"
 #include "driver/keyboard.h"
 #include "misc/frequencies.h"
-#include "helper/battery.h"
+#include "app/battery.h"
 #include "misc/misc.h"
 #include "misc/settings.h"
 #if defined(ENABLE_OVERLAY)

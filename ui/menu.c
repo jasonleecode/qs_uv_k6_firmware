@@ -28,7 +28,7 @@
 #include "../driver/st7565.h"
 #include "../external/printf/printf.h"
 #include "misc/frequencies.h"
-#include "../helper/battery.h"
+#include "../app/battery.h"
 #include "misc/misc.h"
 #include "misc/settings.h"
 #include "helper.h"

@@ -21,7 +21,7 @@
 #include "app/scanner.h"
 #include "misc/audio.h"
 #include "misc/functions.h"
-#include "helper/battery.h"
+#include "app/battery.h"
 #include "misc/misc.h"
 #include "misc/settings.h"
 

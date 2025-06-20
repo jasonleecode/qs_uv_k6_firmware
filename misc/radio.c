@@ -31,7 +31,7 @@
 #include "driver/system.h"
 #include "misc/frequencies.h"
 #include "misc/functions.h"
-#include "helper/battery.h"
+#include "app/battery.h"
 #include "misc/misc.h"
 #include "misc/radio.h"
 #include "misc/settings.h"

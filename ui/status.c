@@ -26,7 +26,7 @@
 #include "driver/st7565.h"
 #include "external/printf/printf.h"
 #include "misc/functions.h"
-#include "helper/battery.h"
+#include "app/battery.h"
 #include "misc/misc.h"
 #include "misc/settings.h"
 #include "ui/battery.h"

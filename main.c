@@ -43,8 +43,8 @@
 	#include "driver/uart.h"
 #endif
 
-#include "helper/battery.h"
-#include "helper/boot.h"
+#include "app/battery.h"
+#include "app/boot.h"
 
 #include "ui/lock.h"
 #include "ui/welcome.h"

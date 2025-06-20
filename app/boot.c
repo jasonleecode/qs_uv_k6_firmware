@@ -24,7 +24,7 @@
 #include "driver/keyboard.h"
 #include "driver/gpio.h"
 #include "driver/system.h"
-#include "helper/boot.h"
+#include "app/boot.h"
 #include "misc/misc.h"
 #include "misc/radio.h"
 #include "misc/settings.h"

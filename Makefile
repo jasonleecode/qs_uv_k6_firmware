@@ -5,7 +5,7 @@ TARGET := firmware
 
 # Build and source folders
 BUILD_DIR := build
-SRC_DIRS := app driver misc ui helper external external/printf .
+SRC_DIRS := app driver misc ui external external/printf .
 
 # Tools
 AS := arm-none-eabi-gcc

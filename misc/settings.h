@@ -21,7 +21,7 @@
 #include <stdint.h>
 
 #include "misc/frequencies.h"
-#include <helper/battery.h>
+#include <app/battery.h>
 #include "misc/radio.h"
 #include <driver/backlight.h>
 

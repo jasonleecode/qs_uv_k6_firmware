@@ -37,7 +37,7 @@
 #include "driver/system.h"
 #include "driver/st7565.h"
 #include "misc/frequencies.h"
-#include "helper/battery.h"
+#include "app/battery.h"
 #include "misc/misc.h"
 #include "misc/settings.h"
 #if defined(ENABLE_OVERLAY)
