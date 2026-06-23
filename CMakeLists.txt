@@ -19,7 +19,10 @@ option(ENABLE_UART "Enable UART" ON)
 option(ENABLE_AIRCOPY "Enable Aircopy" OFF)
 option(ENABLE_FMRADIO "Enable FM Radio" ON)
 option(ENABLE_SPECTRUM "Enable Spectrum" ON)
-option(ENABLE_CW "Enable CW (Morse) beacon" ON)
+# The full UART+FMRADIO+SPECTRUM image already nearly fills the 60K FLASH, so
+# CW is opt-in for the CMake build. To enable it, free some space first, e.g.
+#   cmake -DENABLE_CW=ON -DENABLE_SPECTRUM=OFF ..
+option(ENABLE_CW "Enable CW (Morse) beacon" OFF)
 # 添加更多宏定义选项...
 
 # ====== Include Directories ======
