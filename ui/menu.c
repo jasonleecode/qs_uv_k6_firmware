@@ -18,6 +18,9 @@
 #include <stdlib.h>
 
 #include "../app/dtmf.h"
+#ifdef ENABLE_CW
+	#include "../app/cw.h"
+#endif
 #include "../app/menu.h"
 #include "misc/bitmaps.h"
 #include "misc/board.h"
@@ -123,6 +126,11 @@ const t_menu_item MenuList[] =
 	{"BatVol", VOICE_ID_INVALID,                       MENU_VOL           }, // was "VOL"
 	{"RxMode", VOICE_ID_DUAL_STANDBY,                  MENU_TDR           },
 	{"Sql",    VOICE_ID_SQUELCH,                       MENU_SQL           },
+#ifdef ENABLE_CW
+	{"CWSpd",  VOICE_ID_INVALID,                       MENU_CW_SPD        }, // CW keying speed (wpm)
+	{"CWTon",  VOICE_ID_INVALID,                       MENU_CW_TON        }, // CW side-tone (Hz)
+	{"CWMsg",  VOICE_ID_INVALID,                       MENU_CW_MSG        }, // CW beacon message
+#endif
 
 	// hidden menu items from here on
 	// enabled if pressing both the PTT and upper side button at power-on
@@ -363,7 +371,10 @@ const t_sidefunction gSubMenu_SIDEFUNCTIONS[] =
 	{"BLMIN\nTMP OFF",  ACTION_OPT_BLMIN_TMP_OFF}, 		//BackLight Minimum Temporay OFF
 #endif
 #ifdef ENABLE_SPECTRUM
-	{"SPECTRUM",         ACTION_OPT_SPECTRUM}
+	{"SPECTRUM",         ACTION_OPT_SPECTRUM},
+#endif
+#ifdef ENABLE_CW
+	{"CW\nBEACON",       ACTION_OPT_CW},
 #endif
 };
 
@@ -833,6 +844,32 @@ void UI_DisplayMenu(void)
 		case MENU_BATTYP:
 			strcpy(String, gSubMenu_BATTYP[gSubMenuSelection]);
 			break;
+
+#ifdef ENABLE_CW
+		case MENU_CW_SPD:
+			sprintf(String, "%d\nWPM", gSubMenuSelection);
+			break;
+
+		case MENU_CW_TON:
+			sprintf(String, "%uHz", CW_TONE_PRESETS[gSubMenuSelection]);
+			break;
+
+		case MENU_CW_MSG:
+			if (gIsInSubMenu && edit_index >= 0)
+			{	// show the message being edited across the full width
+				UI_PrintString(edit, 0, 0, 2, 8);
+				if ((unsigned int)edit_index < CW_MESSAGE_MAX)
+					UI_PrintString("^", 0 + (8 * edit_index), 0, 4, 8);
+			}
+			else
+			{	// show the stored message
+				char msg[CW_MESSAGE_MAX + 1];
+				CW_GetMessage(msg);
+				UI_PrintString(msg[0] ? msg : "--", menu_item_x1, menu_item_x2, 2, 8);
+			}
+			already_printed = true;
+			break;
+#endif
 
 		case MENU_F1SHRT:
 		case MENU_F1LONG:

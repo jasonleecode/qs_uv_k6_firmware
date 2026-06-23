@@ -1013,6 +1013,33 @@ void BK4819_EnterTxMute(void) { BK4819_WriteRegister(BK4819_REG_50, 0xBB20); }
 
 void BK4819_ExitTxMute(void) { BK4819_WriteRegister(BK4819_REG_50, 0x3B20); }
 
+#ifdef ENABLE_CW
+// Set up tone1 for Morse (on/off) keying while already transmitting.
+// The RF carrier is left running; key the dots/dashes by toggling the
+// TX mute with BK4819_ExitTxMute() / BK4819_EnterTxMute().
+// level is the tone tuning gain, 0 ~ 127.
+void BK4819_StartCW(const uint16_t tone_Hz, const uint8_t level) {
+  BK4819_EnterTxMute();
+  BK4819_SetAF(BK4819_AF_MUTE);
+
+  BK4819_WriteRegister(
+      BK4819_REG_70,
+      BK4819_REG_70_ENABLE_TONE1 |
+          ((level & 0x7f) << BK4819_REG_70_SHIFT_TONE1_TUNING_GAIN));
+
+  BK4819_EnableTXLink();
+  SYSTEM_DelayMs(50);
+
+  BK4819_WriteRegister(BK4819_REG_71, scale_freq(tone_Hz));
+}
+
+void BK4819_StopCW(void) {
+  BK4819_EnterTxMute();
+  BK4819_WriteRegister(BK4819_REG_70, 0x0000);
+  BK4819_WriteRegister(BK4819_REG_30, 0xC1FE);
+}
+#endif
+
 void BK4819_Sleep(void) {
   BK4819_WriteRegister(BK4819_REG_30, 0);
   BK4819_WriteRegister(BK4819_REG_37, 0x1D00);

@@ -107,6 +107,11 @@ enum
 #ifdef ENABLE_NOAA
 	MENU_NOAA_S,
 #endif
+#ifdef ENABLE_CW
+	MENU_CW_SPD,
+	MENU_CW_TON,
+	MENU_CW_MSG,
+#endif
 	MENU_RESET,
 	MENU_F_LOCK,
 	MENU_200TX,

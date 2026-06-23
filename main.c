@@ -43,6 +43,9 @@
 
 #include "app/battery.h"
 #include "app/boot.h"
+#ifdef ENABLE_CW
+#include "app/cw.h"
+#endif
 #include "ui/lock.h"
 #include "ui/menu.h"
 #include "ui/welcome.h"
@@ -86,6 +89,10 @@ int main(void) {
   SETTINGS_InitEEPROM();
   SETTINGS_WriteBuildOptions();
   SETTINGS_LoadCalibration();
+
+#ifdef ENABLE_CW
+  CW_LoadConfig();
+#endif
 
   RADIO_ConfigureChannel(0, VFO_CONFIGURE_RELOAD);
   RADIO_ConfigureChannel(1, VFO_CONFIGURE_RELOAD);

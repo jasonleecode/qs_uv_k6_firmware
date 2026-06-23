@@ -21,6 +21,9 @@
 #include "app/app.h"
 #include "app/chFrScanner.h"
 #include "app/common.h"
+#ifdef ENABLE_CW
+	#include "app/cw.h"
+#endif
 #include "app/dtmf.h"
 #ifdef ENABLE_FLASHLIGHT
 	#include "app/flashlight.h"
@@ -109,6 +112,12 @@ void (*action_opt_table[])(void) = {
 	[ACTION_OPT_SPECTRUM] = &APP_RunSpectrum,
 #else
 	[ACTION_OPT_SPECTRUM] = &FUNCTION_NOP,
+#endif
+
+#ifdef ENABLE_CW
+	[ACTION_OPT_CW] = &CW_StartBeacon,
+#else
+	[ACTION_OPT_CW] = &FUNCTION_NOP,
 #endif
 };
 
