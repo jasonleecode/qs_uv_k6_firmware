@@ -106,6 +106,10 @@ void BK4819_PlaySingleTone(const unsigned int tone_Hz, const unsigned int delay,
                            const unsigned int level, const bool play_speaker);
 void BK4819_EnterTxMute(void);
 void BK4819_ExitTxMute(void);
+#ifdef ENABLE_CW
+void BK4819_StartCW(const uint16_t tone_Hz, const uint8_t level);
+void BK4819_StopCW(void);
+#endif
 void BK4819_Sleep(void);
 void BK4819_TurnsOffTones_TurnsOnRX(void);
 #ifdef ENABLE_AIRCOPY

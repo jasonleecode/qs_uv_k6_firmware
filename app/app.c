@@ -26,6 +26,9 @@
 #endif
 #include "app/app.h"
 #include "app/chFrScanner.h"
+#ifdef ENABLE_CW
+#include "app/cw.h"
+#endif
 #include "app/dtmf.h"
 #ifdef ENABLE_FLASHLIGHT
 #include "app/flashlight.h"
@@ -716,7 +719,11 @@ static void HandleVox(void) {
       gVOX_NoiseDetected = false;
 
     if (gCurrentFunction == FUNCTION_TRANSMIT && !gPttIsPressed &&
-        !gVOX_NoiseDetected) {
+        !gVOX_NoiseDetected
+#ifdef ENABLE_CW
+        && !CW_IsActive()
+#endif
+    ) {
       if (gFlagEndTransmission) {
         // if (gCurrentFunction != FUNCTION_FOREGROUND)
         FUNCTION_Select(FUNCTION_FOREGROUND);
@@ -1060,6 +1067,18 @@ void APP_TimeSlice10ms(void) {
 #endif
 
   if (gReducedService) return;
+
+#ifdef ENABLE_CW
+  if (CW_IsActive()) {
+    CW_TimeSlice10ms();
+    if (gUpdateDisplay) {
+      gUpdateDisplay = false;
+      GUI_DisplayScreen();
+    }
+    if (gUpdateStatus) UI_DisplayStatus();
+    return;  // while keying, skip the normal RX/TX servicing
+  }
+#endif
 
   if (gCurrentFunction != FUNCTION_POWER_SAVE || !gRxIdleMode)
     CheckRadioInterrupts();

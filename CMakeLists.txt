@@ -19,6 +19,7 @@ option(ENABLE_UART "Enable UART" ON)
 option(ENABLE_AIRCOPY "Enable Aircopy" OFF)
 option(ENABLE_FMRADIO "Enable FM Radio" ON)
 option(ENABLE_SPECTRUM "Enable Spectrum" ON)
+option(ENABLE_CW "Enable CW (Morse) beacon" ON)
 # 添加更多宏定义选项...
 
 # ====== Include Directories ======
@@ -47,6 +48,9 @@ if(ENABLE_FMRADIO)
 endif()
 if(ENABLE_SPECTRUM)
     add_compile_definitions(ENABLE_SPECTRUM)
+endif()
+if(ENABLE_CW)
+    add_compile_definitions(ENABLE_CW)
 endif()
 
 # ====== Source Collection ======

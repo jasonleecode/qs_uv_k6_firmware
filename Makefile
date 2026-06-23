@@ -69,7 +69,8 @@ ASFLAGS := -c -mcpu=cortex-m0
 CFLAGS := -Os -Wall -Werror -mcpu=cortex-m0 -fno-builtin -fshort-enums \
 	-fno-delete-null-pointer-checks -std=c2x -MMD -Wextra \
 	-DPRINTF_INCLUDE_CONFIG_H -DAUTHOR_STRING=\"$(AUTHOR_STRING)\" \
-	-DVERSION_STRING=\"$(VERSION_STRING)\"
+	-DVERSION_STRING=\"$(VERSION_STRING)\" \
+	-DENABLE_CW
 LDFLAGS := -z noexecstack -mcpu=cortex-m0 -nostartfiles -Wl,-T,external/libcpu/firmware.ld \
 	-Wl,--gc-sections --specs=nano.specs
 INC := -I. -Iexternal/libcpu/ -Iexternal/libcpu/ARMCM0/Include/
